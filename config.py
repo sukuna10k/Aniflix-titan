@@ -58,7 +58,7 @@ BOT_STATS_TEXT = "<b>Temps de Fonction :</b>\n{uptime}"
 
 USER_REPLY_TEXT = "<b>Ne m'envoyer Pas de message je ne suis q'un bot de stockage contact @Kingcey </b>  !"
 
-START_MSG = os.environ.get("START_MESSAGE", "Hello {mention}\n\nJe Suis [Kimita](https://t.me/sdbe_bot) je stocke des fichiers de films et de séries et vous aide à y accéder via un lien spécial..")
+START_MSG = os.environ.get("START_MESSAGE", "Hello {mention}\n\nJe Suis <a href='https://t.me/sdbe_bot'>Kimita</a> je stocke des fichiers de films et de séries et vous aide à y accéder via un lien spécial..")
 
 FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Salut {mention}\n\n<b>Rejoins D'abord mon canal pour pouvoir retrouver ton Film ou Anime</b>")
 
