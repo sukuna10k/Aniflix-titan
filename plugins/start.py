@@ -89,15 +89,25 @@ async def start_command(client: Client, message: Message):
                 pass
 
 
-        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>❗️ <u>IMPORTANT</u> ❗️</b>\n\nThis Video / File Will Be Deleted In {file_auto_delete} (Due To Copyright Issues).\n\n📌 Please Forward This Video / File To Somewhere Else And Start Downloading There.")
+        k = await client.send_message(chat_id = message.from_user.id, text=f"<b>❗️ <u>IMPORTANT</u> ❗️</b>\n\nCe message sera supprimé dans {file_auto_delete} (Pour cause de droit d'auteur).\n\n📌 Veuillez le transferé dans vos message enregistrée pour ne pas la perdre.")
 
+         # Send the image
+        image_url = "https://envs.sh/d4I.jpg"
+        await message.reply_photo(photo=image_url, caption=START_MSG.format(
+            first=message.from_user.first_name,
+            last=message.from_user.last_name,
+            username=None if not message.from_user.username else '@' + message.from_user.username,
+            mention=message.from_user.mention,
+            id=message.from_user.id
+        ))
+        
         # Schedule the file deletion
         asyncio.create_task(delete_files(madflix_msgs, client, k))
         
         # for madflix_msg in madflix_msgs: 
             # try:
                 # await madflix_msg.delete()
-                # await k.edit_text("Your Video / File Is Successfully Deleted ✅") 
+                # await k.edit_text("Fichier Supprimé ✅") 
             # except:    
                 # pass 
 
@@ -106,8 +116,8 @@ async def start_command(client: Client, message: Message):
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("😊 About Me", callback_data = "about"),
-                    InlineKeyboardButton("🔒 Close", callback_data = "close")
+                    InlineKeyboardButton("😊 About", callback_data = "about"),
+                    InlineKeyboardButton("🔒 Fermer", callback_data = "close")
                 ]
             ]
         )
@@ -135,14 +145,14 @@ async def start_command(client: Client, message: Message):
 async def not_joined(client: Client, message: Message):
     buttons = [
         [
-            InlineKeyboardButton(text="Join Channel", url=client.invitelink)
+            InlineKeyboardButton(text="Rejoindre La chaîne", url=client.invitelink)
         ]
     ]
     try:
         buttons.append(
             [
                 InlineKeyboardButton(
-                    text = 'Try Again',
+                    text = 'Récupérer le fichier',
                     url = f"https://t.me/{client.username}?start={message.command[1]}"
                 )
             ]
@@ -233,7 +243,7 @@ async def delete_files(messages, client, k):
         except Exception as e:
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
     # await client.send_message(messages[0].chat.id, "Your Video / File Is Successfully Deleted ✅")
-    await k.edit_text("Your Video / File Is Successfully Deleted ✅")
+    await k.edit_text("Fichier Supprimer ✅")
 
 
 
