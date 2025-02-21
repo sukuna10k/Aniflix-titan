@@ -19,7 +19,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002463797892"))
 FORCE_SUB_CHANNEL = int(os.environ.get("FORCE_SUB_CHANNEL", "-1002278892364"))
 
 
-FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "800")) # auto delete in seconds
+FILE_AUTO_DELETE = int(os.getenv("FILE_AUTO_DELETE", "1000")) # auto delete in seconds
 
 
 PORT = os.environ.get("PORT", "8080")
@@ -56,11 +56,11 @@ BOT_STATS_TEXT = "<b>Temps de Fonction :</b>\n{uptime}"
 
 
 
-USER_REPLY_TEXT = "❌Ne m'envoyer  !"
+USER_REPLY_TEXT = "<b>Ne m'envoyer Pas de message je ne suis q'un bot de stockage contact @Kingcey </b>  !"
 
-START_MSG = os.environ.get("START_MESSAGE", "Hello {mention}\n\nI Can Store Private Files In Specified Channel And Other Users Can Access It From Special Link.")
+START_MSG = os.environ.get("START_MESSAGE", "Salut {mention}\n\nJe Suis <a href="https://t.me/Sdbe_bot>Kmika</a> je stocke des fichiers de films et de séries et vous aide à y accéder via un lien spécial..")
 
-FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Hello {mention}\n\n<b>You Need To Join In My Channel/Group To Use Me\n\nKindly Please Join Channel</b>")
+FORCE_MSG = os.environ.get("FORCE_SUB_MESSAGE", "Salut {mention}\n\n<b>Rejoins D'abord mon canal pour pouvoir retrouver ton Film ou Anime</b>")
 
 
 
